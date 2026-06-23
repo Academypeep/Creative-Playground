@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Writing and Image Assistant</title>
+    <script>
+      // Suppress cross-origin script errors and extension-injected errors like MetaMask
+      window.addEventListener('error', function(e) {
+        const msg = e.message || '';
+        const file = e.filename || '';
+        if (
+          msg.includes('MetaMask') || 
+          msg.includes('ethereum') || 
+          msg.includes('Script error') || 
+          file.includes('extension') || 
+          file.includes('metamask')
+        ) {
+          e.stopImmediatePropagation();
+          e.preventDefault();
+          return true;
+        }
+      }, true);
+
+      window.addEventListener('unhandledrejection', function(e) {
+        const reason = e.reason && e.reason.message ? e.reason.message : '';
+        if (reason.includes('MetaMask') || reason.includes('ethereum')) {
+          e.stopImmediatePropagation();
+          e.preventDefault();
+          return true;
+        }
+      }, true);
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

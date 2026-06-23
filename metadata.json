@@ -1,0 +1,6 @@
+{
+  "name": "AI Writing and Image Assistant",
+  "description": "A clean, highly interactive full-stack workspace featuring AI-powered text generation, image creation, and note organization using Gemini.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
